@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors')
 mongoose.set('strictQuery', true);
 
 const productRoutes = require('./routes/productRoutes') //new code
@@ -10,6 +11,7 @@ const app = express()
 
 // Body parser middleware
 app.use(express.json())
+app.use(cors())
 
 //DB config
 const MONGODB_URI= process.env.MONGODB_URI || require('./config').mongoDB_URI
